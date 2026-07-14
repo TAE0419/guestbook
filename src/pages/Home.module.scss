@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 필수: 여백 계산 시 테두리 포함 */
+}
+body {
+    overflow-x: hidden; /* 가로 스크롤 강제 차단 */
+}
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+    padding: 0;
+}
+.home{
+    /* 부모 레이아웃 규칙을 무시하고 강제로 배치 */
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    /* 부모가 무엇이든 상관없이 무조건 화면 끝에 붙임 */
+    box-sizing: border-box !important;
+
+    .back{
+        width: 100%; height: 100%;
+        position: absolute; top: 0;left: 0; z-index: 10;
+        background: #041A28;
+        background: linear-gradient(90deg, rgba(4, 26, 40, 1) 10%, rgba(201, 223, 244, 0) 100%); 
+    }
+
+    .slide{
+        position: absolute;
+        width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        video{
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            object-position: center;
+        }
+    }
+    .copy{
+        position: absolute;
+        top: 50%; transform: translateY(-50%);
+        left: 10%; z-index: 20;
+        display: flex; justify-content: center; align-items: start;
+        flex-direction: column;
+        color: rgba(201, 223, 244,0.9);
+        text-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+            h1{font-size: 300px; font-weight: bold;}
+            h2{font-size: 20px; font-weight: 300; margin-left: 20px; margin-top: -40px;}
+        }
+    .dots{
+        position: absolute;
+        bottom: 50px; left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex; gap: 15px;
+        button{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(3,25,39,0.5); border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover{
+                background-color: #ba1200;
+            }
+            &.activeDot{
+                width: 25px;
+                border-radius: 20px;
+                background-color: #ba1200;
+            }
+        }
+    }
+}

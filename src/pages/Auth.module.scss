@@ -1,0 +1,48 @@
+.auth{
+    display: flex;justify-content: center; align-items: center;
+    background-image: url(../../public/img/keyboard.jpg);
+    background-position: center; background-repeat: no-repeat; background-size: cover;
+    width: 100%; height: 100vh; overflow: hidden;
+    position: absolute;
+    .back{
+        width: 100%; height: 100%;
+        position: absolute; top: 0;left: 0; z-index: 10;
+        background: #041A28;
+        background: linear-gradient(0deg, rgba(4, 26, 40, 0.8) 0%, rgba(4, 26, 40, 0.95) 100%);
+    }
+    .card{
+        display: grid; grid-template-columns: 1fr;
+        column-gap:20px; row-gap: 15px;
+        width: 600px; height: 700px; padding: 50px;
+        background-color: rgba(200,224,244,1); border-radius: 10px;
+        border: 1px solid #508AA8; box-shadow: 0 0 15px rgba(0,0,0,0.7);
+        position: absolute; z-index: 15;
+
+        h1{
+            font-size: 50px; color: #041A28;
+        }
+        p{
+            font-size: 15px;  color: #041A28;
+            
+        }
+        .field{
+            display: flex; gap: 20px;
+            input{
+                width: 200px; height: 30px; padding-left: 10px;
+                border-radius: 15px; border: 1px solid rgba(3,25,39,0.5);
+            }
+        }
+        .submitBtn{
+            border-radius: 10px; border: 1px solid rgba(3,25,39,0.3);
+            background-color: #508AA7;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            color: #C9DFF4; font-weight: bold; font-size: 20px;
+        }
+        p{
+            .link{
+            color: #BB1100; font-weight: bold;
+        }
+        }
+        
+    }
+}
