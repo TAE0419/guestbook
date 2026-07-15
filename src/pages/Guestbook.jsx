@@ -6,10 +6,13 @@ import useAuthStore from '../store/useAuthStore'
 import { db } from '../../firebase'
 import styles from './Guestbook.module.scss'
 
+const ITEMS_PER_PAGE = 5
+
 const Guestbook = () => {
   const [posts, setPosts] = useState([])
   const [editingId, setEditingId] = useState(null)
   const [editingMessage, setEditingMessage] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
   const user = useAuthStore((state) => state.user)
 
   useEffect(() => {
@@ -20,6 +23,7 @@ const Guestbook = () => {
         ...docSnap.data(),
       }))
       setPosts(list)
+      setCurrentPage(1)
     })
 
     return () => unsubscribe()
@@ -57,22 +61,29 @@ const Guestbook = () => {
     setEditingMessage('')
   }
 
+  // Pagination 계산
+  const totalPages = Math.ceil(posts.length / ITEMS_PER_PAGE)
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const endIndex = startIndex + ITEMS_PER_PAGE
+  const currentPosts = posts.slice(startIndex, endIndex)
+
   return (
     <section className={styles.GuestbookSection}>
+      <div className={styles.back}></div>
       <div className={styles.title}>
-        <h1>GUESTBOOK</h1>
-        <p>이야기 저장소</p>
+        <h1>GUESTBOOK.</h1>
+        <p>젠틀맨 저장소</p>
       </div>
       <div>
         <GuestbookForm onAddPost={addPostFnc} />
         <div className={styles.title}>
-          <h1>GUESTLIST</h1>
+          <h1>GUESTLIST.</h1>
           <p>{posts.length}개의 이야기</p>
         </div>
         <div  className={styles.guestlist}>
-        {posts.length > 0 ? (
+        {currentPosts.length > 0 ? (
           <>
-            {posts.map((item) => (
+            {currentPosts.map((item) => (
               <div className={styles.post} key={item.id}>
                 <div className={styles.nickname}>{item.nickname}</div>
                 <div className={styles.box}>
@@ -105,6 +116,41 @@ const Guestbook = () => {
           <p>기록이 없습니다</p>
         )}
         </div>
+        
+        {posts.length >= 5 && (
+          <div className={styles.pagination}>
+            <button 
+              type='button'
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+              className={styles.navButton}
+            >
+              이전
+            </button>
+            
+            <div className={styles.pageNumbers}>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  type='button'
+                  onClick={() => setCurrentPage(page)}
+                  className={`${styles.pageButton} ${currentPage === page ? styles.active : ''}`}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+            
+            <button 
+              type='button'
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+              className={styles.navButton}
+            >
+              다음
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )

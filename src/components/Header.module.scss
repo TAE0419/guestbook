@@ -18,25 +18,43 @@
                 }
         }
         nav{
-            display: flex; gap: 100px;
+            display: flex; gap: 100px; align-items: center;
             
             a{
                 color : #9dd1f1;
                 font-size: 15px;
                 transition: all 0.3s;
+                display: flex; align-items: center;
                 &:hover{
                     color : #ba1200;
                     transform: scale(1.1);
                 }
             }
+            .login, .signup {
+                display: flex; align-items: center;
+                &:hover {
+                    transform: scale(1.15);
+                }
+            }
             .logout{
                 color : #9dd1f1; 
-                background-color: transparent; border: none;
+                background-color: transparent; 
+                border: none;
                 font-size: 15px;
                 transition: all 0.3s;
+                display: flex; align-items: center;
+                cursor: pointer;
                 &:hover{
                     color : #ba1200;
-                    transform: scale(1.1);
+                    transform: scale(1.15);
+                }
+            }
+            .userSection {
+                display: flex; align-items: center; gap: 15px;
+                .nickname {
+                    color: #9dd1f1;
+                    font-size: 14px;
+                    font-weight: 500;
                 }
             }
         }

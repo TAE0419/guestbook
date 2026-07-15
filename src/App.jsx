@@ -6,6 +6,7 @@ import Header from './components/Header.jsx'
 import Signup from './pages/Signup.jsx'
 import Guestbook from './pages/Guestbook'
 import useAuthStore from './store/useAuthStore.js'
+import About from './pages/About.jsx'
 
 const App = () => {
   const initializeAuth = useAuthStore((state) => state.initializeAuth)
@@ -19,6 +20,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/guestbook' element={<Guestbook />} />

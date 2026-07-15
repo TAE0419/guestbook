@@ -1,6 +1,6 @@
 .auth{
     display: flex;justify-content: center; align-items: center;
-    background-image: url(../../public/img/keyboard.jpg);
+    background-image: url(../../public/img/computer.jpg);
     background-position: center; background-repeat: no-repeat; background-size: cover;
     width: 100%; height: 100vh; overflow: hidden;
     position: absolute;
@@ -14,7 +14,7 @@
         display: grid; grid-template-columns: 1fr;
         column-gap:20px; row-gap: 15px;
         width: 600px; height: 700px; padding: 50px;
-        background-color: rgba(200,224,244,1); border-radius: 10px;
+        background-color: rgba(200,224,244,0.9); border-radius: 10px;
         border: 1px solid #508AA8; box-shadow: 0 0 15px rgba(0,0,0,0.7);
         position: absolute; z-index: 15;
 
@@ -30,6 +30,11 @@
             input{
                 width: 200px; height: 30px; padding-left: 10px;
                 border-radius: 15px; border: 1px solid rgba(3,25,39,0.5);
+                transition: all 0.3s;
+                &:hover, &:focus {
+                    border: 1px solid #508AA7;
+                    box-shadow: 0 0 10px rgba(80, 138, 167, 0.3);
+                }
             }
         }
         .submitBtn{
@@ -37,10 +42,24 @@
             background-color: #508AA7;
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
             color: #C9DFF4; font-weight: bold; font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+                background-color: #63a1c7;
+                transform: scale(1.01);
+                box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            }
+            &:active {
+                transform: scale(0.98);
+            }
         }
         p{
             .link{
             color: #BB1100; font-weight: bold;
+            transition: all 0.3s;
+            &:hover {
+                text-decoration: underline;
+            }
         }
         }
         

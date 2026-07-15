@@ -4,7 +4,7 @@ import CHARACTERS from './characterData.js'
 import useAuthStore from '../store/useAuthStore'
 import styles from './GuestbookForm.module.scss'
 
-const EMOJIS = ['🤢', '✨', '🤓', '👽', '💩', '🦷']
+const EMOJIS = ['👨', '👴', '✨', '👽', '💩', '💞']
 
 const GuestbookForm = ({ onAddPost }) => {
   const [nickname, setNickname] = useState('')

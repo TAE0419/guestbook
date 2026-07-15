@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import styles from './Home.module.scss'
 
 const videos = [
-    {title : '당신의 이야기를 작성해보세요.', label : 'WRITE', src : '/mp4/computer.mp4'},
-    {title : '새로운 영감을 공유해보세요.', label : 'IDEA', src : '/mp4/light.mp4'},
-    {title : '다양한 경험들과 마주해보세요.', label : 'FACE', src : '/mp4/face.mp4'},
+    {title : '색다른 모습을 찾아가보세요.', label : 'FIND.', src : '/mp4/cave.mp4'},
+    {title : '당신의 이야기를 작성해보세요.', label : 'WRITE.', src : '/mp4/calculate.mp4'},
+    {title : '다양한 경험들과 마주해보세요.', label : 'FACE.', src : '/mp4/face.mp4'},
 ]
 
 const Home = () => {
@@ -26,6 +26,7 @@ const Home = () => {
     },[])
     return (
         <section className={styles.home}>
+            <div className={styles.sec1}>
             <div className={styles.back}></div>
             <div className={styles.slide}>
                 <video key={activeVideo.src} autoPlay muted loop playsInline>
@@ -47,6 +48,10 @@ const Home = () => {
                             }}/>
                     )
                 })}
+            </div>
+            </div>
+            <div className={styles.sec2}>
+                <div>두번째컴포넌트</div>
             </div>
         </section>
     )

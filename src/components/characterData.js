@@ -8,6 +8,8 @@ export const CHARACTER = [
   { id: 'dino', label: '공룡', src: '/img/hotdog.jpg' },
   { id: 'alpaca', label: '알파카', src: '/img/tyrano.jpg' },
   { id: 'fox', label: '여우', src: '/img/v.jpg' },
+  { id: 'a', label: 'a', src: '/img/mushroom.png' },
+  { id: 'b', label: 'b', src: '/img/bath.png' },
 ]
 
 export default CHARACTER
